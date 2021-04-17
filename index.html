@@ -11,10 +11,11 @@
       integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="src/style.css" />
     <title>Vanilla-Weather-App</title>
   </head>
   <body>
-     <div class="container">
+    <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <form id="search-form" class="mb-3">
@@ -38,7 +39,7 @@
             </div>
           </form>
           <div class="overview">
-            <h1 id="city"> New York</h1>
+            <h1 id="city">New York</h1>
             <ul>
               <li>Firday 05:00 <span id="date"></span></li>
               <li id="description">Clear</li>
@@ -47,32 +48,39 @@
           <div class="row">
             <div class="col-6">
               <div class="clearfix weather-temperature">
-                <img src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png" alt="Clear" id="icon" class="float-left" />
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/48/partly_cloudy.png"
+                  alt="Clear"
+                  id="icon"
+                  class="float-left"
+                />
                 
                   <strong id="temperature">56</strong>
-                  <span class="units"> °C | °F</span>
-               
-              </div>
-            </div>
-            <div class="col-6">
-              <ul>
-                 <li>Precipitation <span id="wind"></span> 0 %</li>
-                <li>Humidity: <span id="humidity"></span>%</li>
-                <li>Wind: <span id="wind"></span> 2 m/h</li>
-              </ul>
-            </div>
+                  <span class="units"> °C | <a  href="#" class="faren"> °F </a>
+                  </span>
+                </div>
+             
+            
           </div>
-          <div class="weather-forecast" id="forecast"></div>
+          <div class="col-6">
+            <ul>
+              <li>Precipitation <span id="wind"></span> 0 %</li>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> 2 m/h</li>
+            </ul>
+          </div>
         </div>
+        <div class="weather-forecast" id="forecast"></div>
+      </div>
+
       <footer>
-       
         <a
           href="https://github.com/denamemari/Vanilla-Weather-App"
           target="_blank"
           rel="noopener noreferrer"
-          >open-source code</a>
-          <a target="_blank" rel="noopener noreferrer">Dena Memari</a>
-
+          >open-source code</a
+        >
+        <a target="_blank" rel="noopener noreferrer">Dena Memari</a>
       </footer>
     </div>
     <script src="src/app.js"></script>
