@@ -56,6 +56,19 @@ li:first-letter {
   font-size: 16px;
   top: -34px;
 }
-.weather-temperature .units .faren {
+
+.weather-temperature .units .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
   text-decoration: solid;
+}
+.weather-temperature .units .far {
+  color: #3170cc;
+  cursor: default;
+  text-decoration: none;
+}
+
+.weather-temperature .units .active:hover {
+  cursor: default;
+  text-decoration: none;
 }
