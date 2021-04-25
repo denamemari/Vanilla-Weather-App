@@ -66,10 +66,47 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function displayHourlyForecast(response) {
+  forecastHourly = response.data.hourly;
+  var H = new Date().getHours();
+  let forecastHourlyElement = document.querySelector("#hourlyForecast");
+
+  let forecastHourlyHTML = `<div class="row">`;
+  forecastHourly.forEach(function (forecastHr, index1) {
+    if (index1 < 6) {
+      forecastHourlyHTML =
+        forecastHourlyHTML +
+        `
+      <div class="col-2">
+      
+        <div class="weather-hourlyforecast-hour">${index1 + H}</div>
+            <img
+            src="http://openweathermap.org/img/wn/${
+              forecastHr.weather[0].icon
+            }@2x.png"
+                  alt=""
+                  width="42"/>
+        <div class="weather-hourlyforecast-temperatures">
+        <span class="weather-hourlyforecast-temperature"> ${Math.round(
+          forecastHr.temp
+        )}° </span>
+                
+                
+              </div>
+            </div>
+   `;
+    }
+  });
+
+  forecastHourlyHTML = forecastHourlyHTML + `</div>`;
+  forecastHourlyElement.innerHTML = forecastHourlyHTML;
+}
+
 function getForecast(coordinates) {
   let apiKey = "d5d27ecfdc1457c7467f81c731c8279f";
   let apiURL = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiURL).then(displayForecast);
+  axios.get(apiURL).then(displayHourlyForecast);
 }
 function displayTempreture(response) {
   let humidityElement = document.querySelector("#humidity");
@@ -112,3 +149,12 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 search("New York");
+
+var t = new Date().getHours();
+if (t < 10) {
+  document.body.style.backgroundColor = "#fefecc";
+} else if (t < 20) {
+  document.body.style.backgroundColor = "#ffc288";
+} else {
+  document.body.style.backgroundColor = "#325288";
+}
